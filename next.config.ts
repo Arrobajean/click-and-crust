@@ -9,6 +9,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Fija la raíz: evita que Next confunda este proyecto con un lockfile de una carpeta superior.
+  turbopack: { root: process.cwd() },
   images: {
     formats: ["image/avif", "image/webp"],
     // Las fotos de producto miden ~700 px de ancho; no se generan variantes mayores.
