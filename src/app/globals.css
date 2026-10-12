@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/*
+ * Tema: un solo tema por página, oscuro por defecto (las fotos de producto son oscuras).
+ * El script de <head> fija data-theme antes de pintar; sin JavaScript manda la preferencia del sistema.
+ * Paleta: verde bosque, hueso y un único acento ámbar. El texto sobre el acento es siempre oscuro.
+ */
+:root {
+  color-scheme: dark;
+  --bg: #0c1410;
+  --surface: #121d17;
+  --surface-2: #1a2820;
+  --line: #2a3b31;
+  --text: #e9e7de;
+  --muted: #a7b2a9;
+  --accent: #dda03f;
+  --accent-ink: #151008;
+  --accent-text: #e6aa4b;
+  --focus: #f2c878;
+  --danger: #ff9d8a;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #e8ede5;
+  --surface: #f2f6ef;
+  --surface-2: #d9e2d6;
+  --line: #bfcbbb;
+  --text: #12211a;
+  --muted: #4b5e53;
+  --accent-text: #7a4a00;
+  --focus: #1f5a43;
+  --danger: #a3200f;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #e8ede5;
+    --surface: #f2f6ef;
+    --surface-2: #d9e2d6;
+    --line: #bfcbbb;
+    --text: #12211a;
+    --muted: #4b5e53;
+    --accent-text: #7a4a00;
+    --focus: #1f5a43;
+    --danger: #a3200f;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  /* Escala de formas: botones en píldora, campos 12 px, imágenes y superficies 18 px. */
+  --radius-field: 12px;
+  --radius-media: 18px;
+}
+
+/* Capas de z-index (única fuente): cabecera y avisos. */
+:root {
+  --z-header: 40;
+  --z-toast: 60;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Entrada de la portada: solo con movimiento permitido. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .settle {
+    animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .skeleton {
+    background: linear-gradient(100deg, var(--surface-2) 40%, var(--line) 50%, var(--surface-2) 60%) 100% 0 / 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    background: var(--surface-2);
+  }
+}
+
+/* Icono del selector de tema: se muestra el del tema al que se cambiaría. */
+:root[data-theme="light"] .theme-sun,
+:root[data-theme="dark"] .theme-moon {
+  display: none;
+}
+
+/* Sin marcador nativo en <summary>: el componente pinta su propio indicador. */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Barra de desplazamiento horizontal discreta para las filas con scroll-snap. */
+.snap-row {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}

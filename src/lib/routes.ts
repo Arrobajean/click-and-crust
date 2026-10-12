@@ -13,6 +13,15 @@ export const ROUTES = {
   notice: "/aviso",
 } as const;
 
+/** Carta con filtros en la URL: ?categoria=...&q=... */
+export function menuUrl({ category, query }: { category?: CategoryId | null; query?: string } = {}): string {
+  const params = new URLSearchParams();
+  if (category) params.set("categoria", category);
+  if (query?.trim()) params.set("q", query.trim());
+  const search = params.toString();
+  return search ? `/carta?${search}` : ROUTES.menu;
+}
+
 export const API = {
   orders: "/api/pedidos",
   slots: "/api/franjas",

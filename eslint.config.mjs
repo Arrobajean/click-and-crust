@@ -13,4 +13,9 @@ export default defineConfig([
       "no-console": ["error", { allow: ["warn", "error"] }],
     },
   },
+  {
+    // Los scripts son herramientas de línea de comandos: imprimir es su salida.
+    files: ["scripts/**"],
+    rules: { "no-console": "off" },
+  },
 ]);
