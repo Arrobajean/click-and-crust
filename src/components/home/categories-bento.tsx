@@ -26,7 +26,8 @@ export function CategoriesBento() {
                   alt=""
                   fill
                   sizes="(min-width: 768px) 58vw, 100vw"
-                  className="object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{ objectPosition: category.imagePosition }}
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 grid gap-1 p-6 text-white">

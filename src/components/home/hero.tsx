@@ -6,7 +6,7 @@ import { menuUrl } from "@/lib/routes";
 
 export function Hero() {
   return (
-    <section className="container-page grid min-h-[calc(100dvh-4rem)] items-center gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-14">
+    <section className="container-page grid items-center lg:min-h-[calc(100dvh-4rem)] gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-14">
       <div className="grid gap-7">
         <h1 className="rise font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">{HERO.title}</h1>
         <p className="rise max-w-[44ch] text-lg text-muted" style={{ "--delay": "120ms" } as CSSProperties}>

@@ -7,6 +7,8 @@ export interface Category {
   name: string;
   description: string;
   image: string;
+  /** object-position de la foto al recortarla en horizontal: apunta al producto. */
+  imagePosition: string;
 }
 
 /** Una forma de comprar el producto: pieza suelta, pack de 3, tarta entera... */

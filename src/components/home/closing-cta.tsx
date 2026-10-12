@@ -11,7 +11,7 @@ export function ClosingCta() {
           {CLOSING.title}
         </h2>
         <div className="md:justify-self-end">
-          <ButtonLink href={menuUrl()} className="bg-accent-ink text-[#f3efe4] hover:brightness-125">
+          <ButtonLink href={menuUrl()} variant="ink">
             Ver la carta
           </ButtonLink>
         </div>
