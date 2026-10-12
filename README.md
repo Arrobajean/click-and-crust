@@ -4,7 +4,7 @@
 
 A click-and-collect storefront for an artisan bakery: browse the menu, build a basket, and book a pickup slot. It is a **demonstration project, not a real business**. Orders are not prepared, paid or emailed.
 
-**Live demo:** not deployed yet. Run it locally (see [Run it](#run-it)).
+**Live demo:** https://click-and-crust.vercel.app (a demonstration: orders are not prepared or paid). To run it locally, see [Run it](#run-it).
 
 | Home | Product | Checkout |
 |---|---|---|

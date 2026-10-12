@@ -4,7 +4,7 @@
 
 Tienda de recogida para una panadería artesanal: consultas la carta, montas una cesta y reservas una franja para recoger. Es un **proyecto de demostración, no un negocio real**: los pedidos no se preparan, no se cobran y no se envían por correo.
 
-**Demo en vivo:** aún sin desplegar. Ejecútalo en local (ver [Cómo ejecutarlo](#cómo-ejecutarlo)).
+**Demo en vivo:** https://click-and-crust.vercel.app (una demostración: los pedidos no se preparan ni se cobran). Para ejecutarlo en local, ver [Cómo ejecutarlo](#cómo-ejecutarlo).
 
 ![Portada](docs/img/home.webp)
 
